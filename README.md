@@ -14,5 +14,5 @@ The concepts learnt in this are :
 
 
 **NOTE :**
-Most of the time we get ready made IP RTL code delivered from IP Providers. If needed we can modify few blocks to meet our expectation. Modify the logic during Synthesis stage or Physical design floks feedback (Tiling time or grouping time). 
+Most of the time we get ready made IP RTL code delivered from IP Providers (Reduces the design cycle time and makes faster execution of the chips to do early tapeout). If needed we can modify few blocks to meet our expectation. Modify the logic during Synthesis stage or Physical design floks feedback (Tiling time or grouping time). 
  
