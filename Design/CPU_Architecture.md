@@ -30,15 +30,16 @@ These gives basic to advanced understanding about chip.
 2. Computer Architecture            : Introductory computer architecture course for beginners. Link : https://onlinecourses.nptel.ac.in/noc23_cs67/preview.
 3. Advanced Computer Architecture   : In this course we will discuss the OOO Pipeline, Memory (Cache design, Main Memory and Secondary storage), GPU and avanced Hardware for AI/ML applications. Link : https://onlinecourses.nptel.ac.in/noc23_cs07/preview#:~:text=About%20the%20course%3A%20This%20course%20is%20on%20Advanced,pipelines%2C%20GPUs%2C%20and%20compiler%20techniques%20for%20enhancing%20ILP.
 4. Parallel Computer Architecture   : In this course we will discuss the need of Parallel computations, Cache design and coherence design, Interconnect Design .Link : https://onlinecourses.nptel.ac.in/noc24_cs63/preview
-5. ARM Cortex A72 Documentation     : Most of the time many of use ARM IP's. Based on the application we have three profiles A - Application, R - Real time and M - Microcontroller. Generally we refer ARM : Advanced RISC Machine.
-6. SoC Books
+5. Multicore Architecture           : In this course Advanced understanding of the concepts Computer, GPU, Memory (Cache, DRAM), Interconnect NoC. https://onlinecourses.nptel.ac.in/noc23_cs113/preview#:~:text=This%20course%20will%20focus%20on%20delivering%20an%20in-depth,DRAM%20systems%2C%20on%20chip%20interconnects%20and%20domain%20specifi
+6. ARM Cortex A72 Documentation     : Most of the time many of use ARM IP's. Based on the application we have three profiles A - Application, R - Real time and M - Microcontroller. Generally we refer ARM : Advanced RISC Machine.
+7. SoC Books
    - https://github.com/arm-university/Fundamentals-of-System-on-Chip-Design-on-Arm-Cortex-M-Microcontrollers
    - https://github.com/arm-university/Modern-System-on-Chip-Design-on-Arm or https://www.arm.com/resources/education/books/modern-soc
    - https://www.arm.com/resources/education/online-courses/introduction-to-soc
    - Resorces Link : https://www.arm.com/resources/education/
-7. The CPU Architecture and System Architecture resemble almost same. We extract the concepts from CPU and apply to System level.
+8. The CPU Architecture and System Architecture resemble almost same. We extract the concepts from CPU and apply to System level.
    Link : https://www.arm.com/architecture/system-architectures.
-8. Multithreading or Threading Mapping to Hardware. Generally we have heard what is Threading, Multi-THreading and Hyperthreading. How exactly is mapped in Hardware? The following papers gibes insights on this : 
+9. Multithreading or Threading Mapping to Hardware. Generally we have heard what is Threading, Multi-THreading and Hyperthreading. How exactly is mapped in Hardware? The following papers gibes insights on this : 
    Link :
    - https://www.cs.ucr.edu/~bhuyan/cs203A/hyperthreading.pdf
    - https://www.cs.ucr.edu/~bhuyan/cs162/LECTURE10.pdf
