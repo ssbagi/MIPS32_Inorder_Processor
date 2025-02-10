@@ -62,6 +62,7 @@ Example : Generally we write a code in C or C++. As we know the compiler convert
 In C/C++ : result = a - b;
   Now compiler converts to following one. Below you can see in assembly we are using Source Register and Destination register.  
 Assembly : sub r5, r12, r25; // R5 = R12 - R25.
+Assembler : Converts to Binary format. 
 Binary code : The following is understood by the MIPS32 CPU core Pipeline block. The above assembly code is converted as follows : 
 0x05992800
 
