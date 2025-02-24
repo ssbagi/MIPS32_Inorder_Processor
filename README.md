@@ -13,6 +13,5 @@ The concepts learnt in this are :
 6. Illustrate an example of MIPS32 program. Executing the testbench and simulation results discussion.
 
 
-**NOTE :**
-Most of the time we get ready made IP RTL code delivered from IP Providers (Reduces the design cycle time and makes faster execution of the chips to do early tapeout). If needed we can modify few blocks to meet our expectation. Modify the logic during Synthesis stage or Physical design floks feedback (Tiling time or grouping time). 
+ 
  
