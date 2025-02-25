@@ -49,8 +49,8 @@ In the following we observed a stange issue :
   
   In the following screenshot we observe the Branch Instruction is 0x3460_FFFC is going from Fetch to Write back stage. The Target address is calculated in the Execute stage.
   
-  ![image](https://github.com/user-attachments/assets/535a0c03-35d9-47c5-ba10-9d4fec7cf36b)
-  
+  ![Branch_Misprediction_1](https://github.com/user-attachments/assets/6fc87f8c-f53d-4489-978f-2f909f453e59)
+
   At time 187ns we see instead of the branch going to loop we are executing the Store operation due to branch misprediction. So, in next fetch cycle it is executing back to branch instruction.
   Every time the branch is getting executed, we are having misprediction and next instruction is getting loaded into the fetch cycle. In the following screenshot for every time an Branch Instruction
   is getting executed then Store instruction is getting executed which it should not have been executed. What if there is different instruction that is ALU operation happening and manipulationg
@@ -64,8 +64,12 @@ In the following we observed a stange issue :
 
   Resolution is whenever we are having branch, we fetch next instruction to be NOP operation type. In the below screenshot you can observe that the highlighted in Yellow color is NOP operation.
   NOP Instruction : 0xF800_0000.
-  
-  ![image](https://github.com/user-attachments/assets/153aa029-e9fd-4b4c-939f-bd45b6ebeaa0)
+
+  ![Branch_Misprediction_5_NOP_Insertion](https://github.com/user-attachments/assets/10c44d9b-2934-4d17-a6f7-4e4460c36e7a)
+
+  At the end the HLT instruction is getting executed and Halting the processor or Pipeline execution.
+  ![HALT_AT_END_EXECUTION](https://github.com/user-attachments/assets/99906a46-46d5-4bd3-8c84-319a8cecdeb7)
+
 
   
 
