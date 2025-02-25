@@ -24,7 +24,7 @@ module pipe_MIPS32 (clk1, clk2, reset);
 parameter ADD=6'b000000, SUB=6'b000001, AND=6'b000010, OR=6'b000011, SLT=6'b000100, MUL=6'b000101, HLT=6'b111111, LW=6'b001000,  SW=6'b001001, ADDI=6'b001010, SUBI=6'b001011,SLTI=6'b001100, BNEQZ=6'b001101, BEQZ=6'b001110, NOP=6'b111110;
 
 // Instruction Type
-parameter RR_ALU=3'b000, RM_ALU=3'b001, LOAD=3'b010, STORE=3'b011, BRANCH=3'b100, HALT=3'b101; NOPOP=3'b110;
+parameter RR_ALU=3'b000, RM_ALU=3'b001, LOAD=3'b010, STORE=3'b011, BRANCH=3'b100, HALT=3'b101, NOPOP=3'b110;
 reg HALTED; // Set after HLT instruction is completed (in WB stage) 
 reg TAKEN_BRANCH;  // Required to disable instructions after branch
 
@@ -49,6 +49,15 @@ always @(posedge clk1)
           Target Address Cacluated in EX stage. It is EX_MEM_ALUOut.
           */
         end 
+      
+      /*
+       For Branch Instruction where condition is met. During the fetch stage I am inserting a NOP operation on purpose. By this 
+      */
+      else if (TAKEN_BRANCH) 
+      begin 
+          IF_ID_IR     <= #2 32'hF8000000; // NOP instruction
+          TAKEN_BRANCH <= #2 1'b0;
+      end
 
       // Synchrnous Reset.
       else if (reset == 1)
@@ -67,6 +76,7 @@ always @(posedge clk1)
           PC           <= #2 PC + 1;
         end
     end
+    
     
 /* 
 Decode Stage :
@@ -104,8 +114,12 @@ always @(posedge clk2)
             ADDI,SUBI,SLTI         : ID_EX_type <= #2 RM_ALU; 
             LW                     : ID_EX_type <= #2 LOAD;                    
             SW                     : ID_EX_type <= #2 STORE;                    
-            BNEQZ,BEQZ             : ID_EX_type <= #2 BRANCH;        
-            HLT                    : ID_EX_type <= #2 HALT;                   
+            BNEQZ,BEQZ             : begin
+                                     ID_EX_type <= #2 BRANCH;
+                                     TAKEN_BRANCH <= #2 1'b1;
+                                     end       
+            HLT                    : ID_EX_type <= #2 HALT;
+            NOP                    : ID_EX_type <= #2 NOPOP;                  
         endcase
     end 
 
@@ -157,7 +171,7 @@ always @(posedge clk1)
             //For NOP instruction. I am saying that my values in execute stage needs to remain same as previous stage.
             NOPOP: begin
                     EX_MEM_ALUOut <= #2 EX_MEM_ALUOut;
-                    end
+                   end
         endcase
     end
 
